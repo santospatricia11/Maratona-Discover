@@ -80,7 +80,7 @@ const DOM = {
     },
 
     innerHTMLTransaction(transaction, index) {
-        const CSSclass = transaction.amount > "income" : "expense"
+        const CSSclass = transaction.amount > 0 ? "income" : "expense"
 
         const amount = Utils.formatCurrency(transaction.amount)
 
@@ -115,7 +115,7 @@ const DOM = {
 
 const Utils = {
     formatAmount(value){
-        value = Number(value.replace(/\,\./g, "")) * 100
+        value = value.replace(/\,\./g, "") * 100
         
         return value
     },
